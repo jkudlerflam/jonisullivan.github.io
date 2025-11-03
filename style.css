@@ -1,0 +1,99 @@
+/* --- General reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
+  background: #fff;
+  display: flex;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 100vh;
+  padding: 40px 20px;
+}
+
+.sidebar h1 {
+  font-size: 20px;
+  letter-spacing: 4px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar nav a:hover {
+  opacity: 0.6;
+}
+
+/* --- Main Content --- */
+main {
+  margin-left: 220px;
+  width: calc(100% - 220px);
+  padding: 40px 0;
+}
+
+.gallery {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+figure {
+  text-align: center;
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 12px;
+}
+
+figcaption {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* --- Mobile adjustments --- */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    text-align: center;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 20px;
+  }
+}

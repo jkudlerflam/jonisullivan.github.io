@@ -100,3 +100,32 @@ figcaption em {
     max-width: 100%;
   }
 }
+
+/* CONTACT PAGE */
+
+.contact-block {
+  margin-top: 24px;
+  margin-left: 40px;   /* pushes text slightly right like the reference */
+  max-width: 420px;
+}
+
+.contact-block p {
+  margin: 10px 0;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.contact-block strong {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.contact-block a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-block a:hover {
+  text-decoration: underline;
+}
+

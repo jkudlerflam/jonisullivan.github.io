@@ -208,3 +208,20 @@ figcaption em { font-style: italic; }
   figure img { max-width: 100%; }
   .contact-block, .page-block, .cv { margin-left: 0; }
 }
+
+/* Wide text block for exhibit descriptions */
+.exhibit-text {
+  max-width: 900px;
+  margin-bottom: 80px;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+/* Narrower image column for exhibit galleries */
+.exhibit-gallery {
+  max-width: 720px;
+}
+
+.exhibit-gallery figure {
+  margin: 0 0 60px 0;
+}

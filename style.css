@@ -150,3 +150,43 @@ figcaption em { font-style: italic; }
   figure img { max-width: 100%; }
   .contact-block, .page-block { margin-left: 0; }
 }
+
+/* CV PAGE */
+
+.cv {
+  margin-top: 10px;
+  margin-left: 14px; /* slight right offset like your reference */
+  max-width: 980px;
+}
+
+.cv-section {
+  margin-bottom: 34px;
+}
+
+.cv-heading {
+  margin: 0 0 10px 0;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.cv-item {
+  display: grid;
+  grid-template-columns: 70px 1fr; /* year column + text */
+  column-gap: 18px;
+  padding: 2px 0;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.cv-year {
+  text-align: right;
+  color: #333;
+  white-space: nowrap;
+}
+
+.cv-text em {
+  font-style: italic;
+}
+

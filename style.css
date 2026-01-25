@@ -1,10 +1,8 @@
-/* Simple, clean, sidebar + scrollable image column */
-
 :root {
-  --sidebar-w: 220px;
+  --sidebar-w: 240px;
   --pad: 44px;
   --text: #111;
-  --muted: #777;
+  --muted: #b5b5b5;
 }
 
 * { box-sizing: border-box; }
@@ -31,45 +29,69 @@ a { color: inherit; text-decoration: none; }
 
 .site-title {
   display: inline-block;
-  font-size: 20px;
+  font-size: 34px;
   letter-spacing: 0.18em;
-  line-height: 1.35;
+  line-height: 1.1;
   text-transform: uppercase;
-  margin-bottom: 42px;
+  margin-bottom: 54px;
 }
 
 .nav a {
   display: block;
-  font-size: 13px;
-  letter-spacing: 0.08em;
+  font-size: 18px;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  margin: 12px 0;
-  color: var(--text);
+  margin: 20px 0;
 }
 
-.nav a.muted { color: var(--muted); }
-.nav a.active { font-style: italic; }
+.nav a.active {
+  font-style: italic;
+}
 
+.nav a.muted {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Sub-navigation */
+.nav-sub {
+  margin: 8px 0 16px 18px;
+}
+
+.nav-sub a {
+  display: block;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 16px 0;
+  line-height: 1.15;
+  font-style: italic;
+}
+
+.nav-sub a.muted {
+  color: var(--muted);
+}
+
+/* Main content */
 .content {
   margin-left: calc(var(--sidebar-w) + 40px);
   padding: var(--pad) 24px;
   max-width: 980px;
 }
 
+/* Gallery */
 .gallery {
   display: flex;
   flex-direction: column;
   gap: 54px;
 }
 
-figure {
-  margin: 0;
-}
+figure { margin: 0; }
 
 figure img {
   display: block;
   width: 100%;
-  max-width: 560px;   /* keeps it feeling like the screenshot */
+  max-width: 560px;
   height: auto;
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
@@ -80,11 +102,40 @@ figcaption {
   color: #222;
 }
 
-figcaption em {
-  font-style: italic;
+figcaption em { font-style: italic; }
+
+/* Contact block */
+.contact-block {
+  margin-top: 24px;
+  margin-left: 40px;
+  max-width: 520px;
 }
 
-/* Mobile: sidebar becomes top block */
+.contact-block p {
+  margin: 10px 0;
+  font-size: 22px;
+  line-height: 1.45;
+}
+
+.contact-block strong {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.contact-block a:hover {
+  text-decoration: underline;
+}
+
+/* Simple text pages */
+.page-block {
+  margin-top: 24px;
+  margin-left: 40px;
+  max-width: 720px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* Mobile */
 @media (max-width: 860px) {
   .sidebar {
     position: static;
@@ -96,55 +147,6 @@ figcaption em {
     margin-left: 0;
     padding-top: 10px;
   }
-  figure img {
-    max-width: 100%;
-  }
+  figure img { max-width: 100%; }
+  .contact-block, .page-block { margin-left: 0; }
 }
-
-/* CONTACT PAGE */
-
-.contact-block {
-  margin-top: 24px;
-  margin-left: 40px;   /* pushes text slightly right like the reference */
-  max-width: 420px;
-}
-
-.contact-block p {
-  margin: 10px 0;
-  font-size: 18px;
-  line-height: 1.45;
-}
-
-.contact-block strong {
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-
-.contact-block a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.contact-block a:hover {
-  text-decoration: underline;
-}
-
-/* Sub-navigation */
-.nav-sub {
-  margin: 10px 0 18px 18px;  /* indent + spacing below group */
-}
-
-.nav-sub a {
-  display: block;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin: 10px 0;
-  line-height: 1.25;
-}
-
-.nav-sub a.muted {
-  color: var(--muted);
-  font-style: italic;
-}
-

@@ -35,24 +35,59 @@
   </aside>
 
   <main class="content">
-    <section class="gallery">
+    <section class="gallery" id="gallery"></section>
 
-      <figure>
-        <img src="images/irises.jpg" alt="Irises About to Bloom">
-        <figcaption><em>Irises About to Bloom</em>, 10x8 inches, graphite, colored pencil, and oil on panel, 2025</figcaption>
-      </figure>
+<script>
+  const paintings = [
+    "35_11_01_02_WebTEXT.jpg",
+    "34_Rainbows_and_Daffodils_WebTEXT.jpg",
+    "33_Rain_Storm_WebTEXT.jpg",
+    "32_Untitled_2023_WebTEXT.jpg",
+    "31_Opening_Your_Eyes_Underwater_WebTEXT.jpg",
+    "30_Coming_Up_WebTEXT.jpg",
+    "29_Untitled_2022_WebTEXT.jpg",
+    "28_Moss_Rose_Purslane_July_17_WebTEXT.jpg",
+    "27_A_Quiet_Death_WebTEXT.jpg",
+    "26_Daffodils_I_WebTEXT.jpg",
+    "25_Daffodils_II_WebTEXT.jpg",
+    "24_Daffodils_III_WebTEXT.jpg",
+    "22_Daffodils_1_WebTEXT.jpg",
+    "21_Daffodils_2_WebTEXT.jpg",
+    "20_Daffodils_3_WebTEXT.jpg",
+    "19_April_8_WebTEXT.jpg",
+    "18_01_Untitled_WebTEXT.jpg",
+    "17_February_25_WebTEXT.jpg",
+    "16_Untitled_WebTEXT.jpg",
+    "15_January_13_WebTEXT.jpg",
+    "14_December_19_WebTEXT.jpg",
+    "13_December_16_WebTEXT.jpg",
+    "12_Nove_12_WebTEXT.jpg",
+    "11_November_6_WebTEXT.jpg",
+    "10_December_Snow_WebTEXT.jpg",
+    "9_In_the_Light_WebTEXT.jpg",
+    "8_Chicago_WebTEXT.jpg",
+    "7_October_Snow_WebTEXT.jpg",
+    "6_24_Hours_After_October_Snow_WebTEXT.jpg",
+    "5_Between_Fall_and_Winter_WebTEXT.jpg",
+    "4_Golden_Hour_WebTEXT.jpg",
+    "3_Golden_Hour_Bleached_WebTEXT.jpg",
+    "2_When_the_Park_Flooded_WebTEXT.jpg",
+    "1_At_the_Reservoir_WebTEXT.jpg"
+  ];
 
-      <figure>
-        <img src="images/work2.jpg" alt="Artwork 2">
-        <figcaption><em>Title</em>, medium, size, year</figcaption>
-      </figure>
+  const gallery = document.getElementById("gallery");
 
-      <figure>
-        <img src="images/work3.jpg" alt="Artwork 3">
-        <figcaption><em>Title</em>, medium, size, year</figcaption>
-      </figure>
+  paintings.forEach((filename) => {
+    const fig = document.createElement("figure");
 
-    </section>
+    const img = document.createElement("img");
+    img.src = `images/${filename}`;
+    img.alt = "";
+
+    fig.appendChild(img);
+    gallery.appendChild(fig);
+  });
+</script>
   </main>
 
 </body>

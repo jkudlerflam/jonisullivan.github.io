@@ -129,3 +129,22 @@ figcaption em {
   text-decoration: underline;
 }
 
+/* Sub-navigation */
+.nav-sub {
+  margin: 10px 0 18px 18px;  /* indent + spacing below group */
+}
+
+.nav-sub a {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 10px 0;
+  line-height: 1.25;
+}
+
+.nav-sub a.muted {
+  color: var(--muted);
+  font-style: italic;
+}
+

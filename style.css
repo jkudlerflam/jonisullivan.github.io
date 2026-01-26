@@ -278,3 +278,19 @@ details[open] > summary.nav-label{
   font-style: italic;
 }
 
+/* =========================
+   EXHIBIT PAGE IMAGE SIZING
+   ========================= */
+
+.exhibit-image {
+  max-width: 1100px;
+  margin: 2.5rem auto;
+}
+
+.exhibit-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+

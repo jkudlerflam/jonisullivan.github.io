@@ -34,87 +34,61 @@
     </nav>
   </aside>
 
-<main class="content">
+  <main class="content">
 
-  <!-- TOP TEXT (WIDE) -->
-  <div class="exhibit-text">
-    <p>
-      “Bridget Bailey (MFA ’21) and Joni Sullivan (MFA ’21) present
-      <strong>During Dessert</strong>,” a collaborative two-person
-      exhibition that celebrates the art that happens after the main
-      course. Bridget and Joni used the old childhood game “telephone,”
-      as the framework for their collaboration. Each artwork started in
-      one studio, and was passed on to the other artist’s studio for a
-      second life. The end result is a playful and unexpected mash-up of
-      styles and treats. Enjoy!
-    </p>
+    <!-- TOP TEXT (WIDER) -->
+    <header class="exhibit-text exhibit-text--wide">
+      <p>
+        “Bridget Bailey (MFA ’21) and Joni Sullivan (MFA ’21) present
+        <strong>During Dessert</strong>,” a collaborative two-person
+        exhibition that celebrates the art that happens after the main
+        course. Bridget and Joni used the old childhood game “telephone,”
+        as the framework for their collaboration. Each artwork started in
+        one studio, and was passed on to the other artist’s studio for a
+        second life. The end result is a playful and unexpected mash-up of
+        styles and treats. Enjoy!
+      </p>
 
-    <p>
-      Bridget and Joni are the first pair to kick off the 2nd Year
-      two-person and solo shows on view at the Commonwealth Gallery at BU.
-      “During Dessert” is up until this Saturday, November 21st.
-      Congrats @bridgetbailey and @joni__sullivan!
-    </p>
+      <p>
+        Bridget and Joni are the first pair to kick off the 2nd Year
+        two-person and solo shows on view at the Commonwealth Gallery at BU.
+        “During Dessert” is up until this Saturday, November 21st.
+        Congrats @bridgetbailey and @joni__sullivan!
+      </p>
 
-    <p>
-      From @BostonPainting, November 18th, 2020.
-    </p>
-  </div>
+      <p>
+        From @BostonPainting, November 18th, 2020.
+      </p>
+    </header>
 
-  <!-- IMAGE STACK (NARROWER) -->
-  <section class="gallery exhibit-gallery" id="gallery"></section>
+    <!-- IMAGE STACK (NARROWER + CENTERED) -->
+    <section class="exhibit-gallery-wrap">
+      <section class="gallery exhibit-gallery" id="gallery"></section>
+    </section>
+
+  </main>
 
   <script>
-    const images = [
-      "1.jpg",
-      "2.jpg",
-      "3.jpg",
-      "4.jpg",
-      "5.jpg",
-      "6.jpg",
-      "7.jpg",
-      "8.jpg",
-      "9.jpg",
-      "10.jpg",
-      "11.jpg",
-      "12.jpg",
-      "13.jpg",
-      "14.jpg",
-      "15.jpg",
-      "16.jpg",
-      "17.jpg",
-      "18.jpg",
-      "19.jpg",
-      "20.jpg",
-      "21.jpg",
-      "22.jpg",
-      "23.jpg",
-      "24.jpg",
-      "25.jpg",
-      "26.jpg",
-      "27.jpg",
-      "28.jpg",
-      "29.jpg",
-      "30.jpg",
-      "31.jpg"
-    ];
-
+    const images = Array.from({ length: 31 }, (_, i) => `${i + 1}.jpg`);
     const gallery = document.getElementById("gallery");
 
     images.forEach(name => {
       const fig = document.createElement("figure");
-      const img = document.createElement("img");
+      fig.className = "exhibit-figure";
 
+      const img = document.createElement("img");
       img.src = `images/${name}`;
       img.alt = "";
+      img.loading = "lazy";
+      img.decoding = "async";
+
+      // Optional: hide broken images if a file is missing
+      img.addEventListener("error", () => fig.remove());
 
       fig.appendChild(img);
       gallery.appendChild(fig);
     });
   </script>
-
-</main>
-
 
 </body>
 </html>

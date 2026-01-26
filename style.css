@@ -320,4 +320,39 @@ details[open] > summary.nav-label{
   filter: none !important;
 }
 
+/* Shared exhibit page container (reasonable width) */
+.exhibit-page{
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Figures + images */
+.exhibit-figure{
+  margin: 0 0 3rem;
+}
+
+.exhibit-figure img{
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* Captions */
+.exhibit-figure figcaption{
+  margin-top: .75rem;
+  line-height: 1.35;
+  font-size: 12px;
+  color: #333;
+  max-width: 70ch;
+}
+
+/* Text blocks */
+.exhibit-text{
+  margin: 2.5rem 0 3rem;
+  max-width: 70ch;
+}
+
+
 

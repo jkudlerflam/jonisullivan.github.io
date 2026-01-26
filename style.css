@@ -293,4 +293,31 @@ details[open] > summary.nav-label{
   display: block;
 }
 
+/* During Dessert + exhibit pages layout */
+.exhibit-text--wide{
+  max-width: 1100px;     /* wider text */
+  margin: 0 auto 3rem;
+}
+
+.exhibit-gallery-wrap{
+  max-width: 900px;      /* narrower image column */
+  margin: 0 auto;
+}
+
+.exhibit-gallery{
+  display: block;        /* keep it simple */
+}
+
+.exhibit-figure{
+  margin: 0 0 3rem;      /* space between images */
+}
+
+.exhibit-figure img{
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: none !important;  /* remove shadows */
+  filter: none !important;
+}
+
 

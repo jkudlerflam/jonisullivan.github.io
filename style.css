@@ -207,3 +207,74 @@ details[open] > summary.nav-label{
     max-width: 100%;
   }
 }
+
+/* -------- Article (Read More) layout like your screenshot -------- */
+.article {
+  max-width: 980px;
+}
+
+.article .kicker-title{
+  margin: 0 0 6px 0;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.article .date{
+  margin: 0 0 10px 0;
+  color: #999;
+  font-size: 14px;
+}
+
+.article .headline-link{
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: underline;
+  margin: 0 0 10px 0;
+}
+
+.article .byline{
+  margin: 0 0 16px 0;
+  color: #444;
+  font-size: 14px;
+}
+
+.article .deck{
+  margin: 0 0 18px 0;
+  font-size: 14px;
+  color: #333;
+  font-style: italic;
+  line-height: 1.5;
+  max-width: 760px;
+}
+
+.article .hero{
+  margin: 24px 0 8px 0;
+}
+
+.article .hero img{
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: none;
+}
+
+.article .caption{
+  margin: 8px 0 24px 0;
+  font-size: 11px;
+  color: #777;
+}
+
+.article .body p{
+  margin: 0 0 16px 0;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #222;
+  max-width: 900px;
+}
+
+.article .body em{
+  font-style: italic;
+}
+

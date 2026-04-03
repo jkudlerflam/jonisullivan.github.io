@@ -10,6 +10,9 @@
 
   <aside class="sidebar">
     <a class="site-title" href="index.html">JONI<br>SULLIVAN</a>
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
 
     <nav class="nav">
       <a href="index.html">Painting</a>
@@ -18,7 +21,7 @@
         <summary class="nav-label">Exhibits</summary>
         <div class="nav-sub">
           <a href="exhibits-mfa-2021.html">"MFA CLASS OF<br>2021 EXHIBITION"</a>
-          <a class="active muted" href="exhibits-during-dessert.html">"DURING DESSERT"</a>
+          <a class="active" href="exhibits-during-dessert.html">"DURING DESSERT"</a>
         </div>
       </details>
 
@@ -90,5 +93,23 @@
     });
   </script>
 
+  <script>
+    (function(){
+      var btn = document.querySelector('.menu-toggle');
+      var nav = document.querySelector('.nav');
+      if(!btn||!nav) return;
+      btn.addEventListener('click', function(){
+        btn.classList.toggle('open');
+        nav.classList.toggle('open');
+      });
+      // close menu when a nav link is tapped
+      nav.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          btn.classList.remove('open');
+          nav.classList.remove('open');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

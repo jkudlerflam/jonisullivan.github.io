@@ -10,6 +10,9 @@
 
   <aside class="sidebar">
     <a class="site-title" href="index.html">JONI<br>SULLIVAN</a>
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
 
     <nav class="nav">
       <a href="index.html">Painting</a>
@@ -25,7 +28,7 @@
       <details open>
         <summary class="nav-label">Writing</summary>
         <div class="nav-sub">
-          <a class="active" href="about-art.html">About Art</a>
+          <a class="active" href="writing-about-art.html">About Art</a>
         </div>
       </details>
 
@@ -141,5 +144,23 @@
     </article>
   </main>
 
+  <script>
+    (function(){
+      var btn = document.querySelector('.menu-toggle');
+      var nav = document.querySelector('.nav');
+      if(!btn||!nav) return;
+      btn.addEventListener('click', function(){
+        btn.classList.toggle('open');
+        nav.classList.toggle('open');
+      });
+      // close menu when a nav link is tapped
+      nav.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          btn.classList.remove('open');
+          nav.classList.remove('open');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -191,6 +191,38 @@ details[open] > summary.nav-label{
   margin: 0 0 16px 0;
 }
 
+/* ---------- CV ---------- */
+.cv{
+  max-width: 800px;
+}
+.cv-section{
+  margin-bottom: 2.5rem;
+}
+.cv-heading{
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+  color: #111;
+}
+.cv-item{
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.cv-year{
+  flex: 0 0 60px;
+  color: #888;
+  font-size: 13px;
+}
+.cv-text{
+  flex: 1;
+  color: #222;
+}
+
 /* ---------- Hamburger button (hidden on desktop) ---------- */
 .menu-toggle{
   display: none;
@@ -341,9 +373,20 @@ details[open] > summary.nav-label{
   }
 
   /* --- CV --- */
+  .cv{
+    max-width: 100%;
+  }
   .cv-item{
-    flex-direction: column;
-    gap: 2px;
+    flex-direction: row;          /* keep year + text side by side */
+    gap: 12px;
+    font-size: 13px;
+  }
+  .cv-year{
+    flex: 0 0 50px;
+    font-size: 12px;
+  }
+  .cv-heading{
+    font-size: 12px;
   }
 
   /* --- Exhibit pages --- */

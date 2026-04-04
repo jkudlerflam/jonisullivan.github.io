@@ -528,14 +528,19 @@ details[open] > summary.nav-label{
   max-width: 1100px;     /* wider text */
   margin: 0 auto 3rem;
 }
+.exhibit-text--wide p{
+  text-align: justify;
+}
 
 .exhibit-gallery-wrap{
-  max-width: 900px;      /* narrower image column */
+  max-width: 650px;      /* narrower image column */
   margin: 0 auto;
 }
 
 .exhibit-gallery{
-  display: block;        /* keep it simple */
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;             /* vertical space between images */
 }
 
 .exhibit-figure{
@@ -582,6 +587,14 @@ details[open] > summary.nav-label{
 .exhibit-text{
   margin: 2.5rem 0 3rem;
   max-width: 70ch;
+}
+.exhibit-text p{
+  text-align: justify;
+}
+
+/* Exhibit figcaptions: single line */
+.exhibit-figure figcaption{
+  white-space: nowrap;
 }
 
 

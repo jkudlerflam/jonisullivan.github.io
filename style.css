@@ -103,7 +103,7 @@ details[open] > summary.nav-label{
 .gallery figure{ margin: 0; }
 .gallery img{
   width: 100%;
-  max-width: 1200px;           /* keeps it nice on huge monitors */
+  max-width: 900px;            /* keeps it nice on huge monitors */
   display: block;
   margin: 0 auto;              /* centered in content column */
   height: auto;
@@ -569,9 +569,14 @@ details[open] > summary.nav-label{
   text-align: justify;
 }
 
-/* Exhibit figcaptions: single line */
+/* Exhibit figcaptions: single line on desktop, wrap on mobile */
 .exhibit-figure figcaption{
   white-space: nowrap;
+}
+@media (max-width: 780px){
+  .exhibit-figure figcaption{
+    white-space: normal;
+  }
 }
 
 /* ---------- Contact ---------- */

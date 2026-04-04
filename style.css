@@ -122,30 +122,57 @@ details[open] > summary.nav-label{
   max-width: 980px;
 }
 
-.post h1, .post h2{
-  margin: 0 0 8px 0;
-  font-size: 30px;
+/* Title sits above the two-column row */
+.post-title{
+  margin: 0 0 16px 0;
+  font-size: 28px;
   font-weight: 600;
   letter-spacing: 0.01em;
 }
 
-.post .date{
-  margin: 0 0 16px 0;
-  color: #999;
-  font-size: 16px;
+/* Image + info side by side */
+.post-row{
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
 }
 
-.post img{
+.post-image{
+  flex: 0 0 48%;
+}
+.post-image img{
   width: 100%;
   height: auto;
   display: block;
-  margin: 0 0 14px 0;
   box-shadow: none;
 }
 
+.post-info{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.post-venue{
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  letter-spacing: 0.01em;
+}
+
+.post .date{
+  margin: 0 0 12px 0;
+  color: #999;
+  font-size: 13px;
+}
+
 .post p{
-  margin: 0 0 14px 0;
-  font-size: 18px;
+  margin: 0 0 12px 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333;
 }
 
 .post a{
@@ -155,10 +182,12 @@ details[open] > summary.nav-label{
 
 .read-more{
   display: inline-block;
-  margin-top: 6px;
-  font-size: 16px;
+  margin-top: 4px;
+  font-size: 14px;
   text-decoration: none;
   color: #111;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .read-more:hover{
@@ -351,16 +380,25 @@ details[open] > summary.nav-label{
     padding-right: 16px;
   }
 
-  /* --- Posts/writing: better mobile type --- */
-  .post h1, .post h2{
+  /* --- Posts/writing: stack image above blurb on mobile --- */
+  .post-title{
     font-size: 22px;
+    margin-bottom: 12px;
+  }
+  .post-row{
+    flex-direction: column;
+    gap: 14px;
+  }
+  .post-image{
+    flex: none;
+    width: 100%;
   }
   .post p{
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.55;
   }
   .post .date{
-    font-size: 13px;
+    font-size: 12px;
   }
 
   /* --- Articles --- */

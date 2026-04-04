@@ -354,30 +354,24 @@ details[open] > summary.nav-label{
   /* --- Content pushed below fixed header --- */
   .content{
     margin-left: 0;
-    padding: 72px 0 48px;        /* no side padding — gallery bleeds edge-to-edge */
+    padding: 72px 16px 48px;
     min-height: 100vh;
   }
 
-  /* --- Gallery: full-bleed images --- */
+  /* --- Gallery: full-bleed images via negative margins --- */
   .gallery{
     gap: 16px;
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+  .gallery figure{
+    margin: 0;
   }
   .gallery img{
-    width: 100vw;
-    max-width: 100vw;
+    width: 100%;
+    max-width: none;
     border-radius: 0;
-  }
-
-  /* --- Re-add side padding for non-gallery content --- */
-  .posts,
-  .article,
-  .cv,
-  .contact-block,
-  .page-block,
-  .exhibit-text,
-  .exhibit-text--wide{
-    padding-left: 16px;
-    padding-right: 16px;
+    display: block;
   }
 
   /* --- Posts/writing: stack image above blurb on mobile --- */
@@ -434,9 +428,13 @@ details[open] > summary.nav-label{
   .exhibit-gallery-wrap{
     max-width: 100%;
   }
+  .exhibit-gallery-wrap{
+    margin-left: -16px;
+    margin-right: -16px;
+  }
   .exhibit-figure img{
-    width: 100vw;
-    max-width: 100vw;
+    width: 100%;
+    max-width: none;
   }
 }
 

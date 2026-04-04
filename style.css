@@ -111,47 +111,22 @@ details[open] > summary.nav-label{
   border-radius: 0;
 }
 
-/* ---------- Writing: About Art list ---------- */
+/* ---------- Writing: About Art list (blog-style vertical) ---------- */
 .posts{
   display: flex;
   flex-direction: column;
-  gap: 54px;
+  gap: 60px;
 }
 
 .post{
-  max-width: 980px;
+  max-width: 780px;
 }
 
-/* Title sits above the two-column row */
 .post-title{
-  margin: 0 0 16px 0;
-  font-size: 28px;
+  margin: 0 0 6px 0;
+  font-size: 26px;
   font-weight: 600;
   letter-spacing: 0.01em;
-}
-
-/* Image + info side by side */
-.post-row{
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
-}
-
-.post-image{
-  flex: 0 0 48%;
-}
-.post-image img{
-  width: 100%;
-  height: auto;
-  display: block;
-  box-shadow: none;
-}
-
-.post-info{
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
 }
 
 .post-venue{
@@ -163,9 +138,19 @@ details[open] > summary.nav-label{
 }
 
 .post .date{
-  margin: 0 0 12px 0;
+  margin: 0 0 14px 0;
   color: #999;
   font-size: 13px;
+}
+
+.post-image{
+  margin: 0 0 14px 0;
+}
+.post-image img{
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: none;
 }
 
 .post p{
@@ -374,18 +359,10 @@ details[open] > summary.nav-label{
     display: block;
   }
 
-  /* --- Posts/writing: stack image above blurb on mobile --- */
+  /* --- Posts/writing --- */
   .post-title{
     font-size: 22px;
-    margin-bottom: 12px;
-  }
-  .post-row{
-    flex-direction: column;
-    gap: 14px;
-  }
-  .post-image{
-    flex: none;
-    width: 100%;
+    margin-bottom: 4px;
   }
   .post p{
     font-size: 14px;
@@ -595,6 +572,27 @@ details[open] > summary.nav-label{
 /* Exhibit figcaptions: single line */
 .exhibit-figure figcaption{
   white-space: nowrap;
+}
+
+/* ---------- Contact ---------- */
+.contact-block{
+  max-width: 600px;
+}
+.contact-block p{
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #222;
+}
+.contact-block a{
+  color: #111;
+  text-decoration: underline;
+}
+.contact-block strong{
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-size: 13px;
+  text-transform: uppercase;
 }
 
 

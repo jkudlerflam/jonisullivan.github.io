@@ -339,7 +339,7 @@ details[open] > summary.nav-label{
   /* --- Content pushed below fixed header --- */
   .content{
     margin-left: 0;
-    padding: 72px 16px 48px;
+    padding: 96px 16px 48px;
     min-height: 100vh;
   }
 

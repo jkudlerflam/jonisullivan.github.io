@@ -293,17 +293,30 @@ details[open] > summary.nav-label{
   /* --- Content pushed below fixed header --- */
   .content{
     margin-left: 0;
-    padding: 80px 16px 48px;
+    padding: 72px 0 48px;        /* no side padding — gallery bleeds edge-to-edge */
     min-height: 100vh;
   }
 
-  /* --- Gallery: generous spacing, full bleed --- */
+  /* --- Gallery: full-bleed images --- */
   .gallery{
-    gap: 24px;
+    gap: 16px;
   }
   .gallery img{
-    max-width: 100%;
+    width: 100vw;
+    max-width: 100vw;
     border-radius: 0;
+  }
+
+  /* --- Re-add side padding for non-gallery content --- */
+  .posts,
+  .article,
+  .cv,
+  .contact-block,
+  .page-block,
+  .exhibit-text,
+  .exhibit-text--wide{
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   /* --- Posts/writing: better mobile type --- */
@@ -336,10 +349,13 @@ details[open] > summary.nav-label{
   /* --- Exhibit pages --- */
   .exhibit-text--wide{
     max-width: 100%;
-    padding: 0;
   }
   .exhibit-gallery-wrap{
     max-width: 100%;
+  }
+  .exhibit-figure img{
+    width: 100vw;
+    max-width: 100vw;
   }
 }
 

@@ -59,6 +59,8 @@ body{
   font-style: italic;
 }
 
+.nav-spacer{ height: 10px; }
+
 /* Dropdowns */
 details{ margin: 0; }
 summary{

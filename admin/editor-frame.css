@@ -1,0 +1,41 @@
+/* Loaded only inside the editor's preview frame. Never part of the public site. */
+
+html[data-editing] [data-edit] { outline: none; cursor: text; border-radius: 2px; transition: box-shadow .12s; }
+html[data-editing] [data-edit]:hover { box-shadow: 0 0 0 1px rgba(29,107,243,.35); }
+html[data-editing] [data-edit]:focus { box-shadow: 0 0 0 1px rgba(29,107,243,.9); }
+html[data-editing] a { cursor: pointer; }
+html[data-editing] [data-edit] a { cursor: text; }
+html[data-editing] .nav a, html[data-editing] .site-title { cursor: pointer; }
+
+/* Empty captions and fields appear only on the selected section. */
+.ed-ph { display: none !important; }
+html[data-editing] .ed-selected .ed-ph, html[data-editing] .ed-ph:focus { display: block !important; min-height: 1em; }
+.ed-ph:empty::before { content: attr(data-placeholder); color: #a0a0a0; font-style: italic; }
+html[data-editing] [data-edit]:empty::before { content: attr(data-placeholder); color: #a0a0a0; }
+
+/* Hidden gallery images stay visible (faded) so they can be shown again. */
+.ed-hidden { opacity: .28; position: relative; }
+.ed-hidden::after { content: "Hidden"; position: absolute; top: 10px; left: 10px; padding: 3px 8px; border-radius: 4px; background: #121212; color: #fff; font: 600 11px/1.4 -apple-system, BlinkMacSystemFont, sans-serif; letter-spacing: .04em; }
+
+.ed-empty {
+  display: grid; place-items: center; min-height: 160px; padding: 32px 24px; border: 1.5px dashed #b9b9b9; border-radius: 6px;
+  text-align: center; color: #7a7a7a; font: 500 14px/1.45 -apple-system, BlinkMacSystemFont, sans-serif; cursor: pointer;
+  background: repeating-linear-gradient(135deg, #fafafa 0 12px, #f4f4f4 12px 24px);
+}
+.ed-empty:hover { border-color: #1d6bf3; color: #1d6bf3; }
+.fe .ed-empty { min-height: 0; height: 100%; padding: 12px; }
+.fe-b .ed-empty { min-height: 100%; }
+
+/* Embedded videos and code never steal clicks while editing. */
+html[data-editing] iframe, html[data-editing] .embed * { pointer-events: none; }
+
+/* Blank-section grid while editing. */
+html[data-editing] .s-blocks.ed-selected .fe-grid {
+  background-image: linear-gradient(to right, rgba(29,107,243,.07) 1px, transparent 1px);
+  background-size: calc((100% + var(--fe-gap, 16px)) / 24) 100%;
+}
+html[data-editing] .fe-b { outline: 1px dashed transparent; }
+html[data-editing] .s-blocks.ed-selected .fe-b { outline-color: rgba(29,107,243,.35); }
+
+/* Outside edit mode the preview looks exactly like the live site. */
+html:not([data-editing]) .ed-empty, html:not([data-editing]) .ed-hidden, html:not([data-editing]) .ed-ph { display: none !important; }

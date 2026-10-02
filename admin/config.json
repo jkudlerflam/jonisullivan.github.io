@@ -1,0 +1,8 @@
+{
+  "siteName": "Joni Sullivan",
+  "owner": "jkudlerflam",
+  "repo": "jonisullivan.github.io",
+  "branch": "main",
+  "apiBase": "https://api.github.com",
+  "author": { "name": "Joni Sullivan (site editor)", "email": "editor@jonisullivan.com" }
+}

@@ -1,0 +1,110 @@
+/* Blank sections (Fluid Engine): the block overlay drawn over the preview
+   (outlines, selection, handles, toolbar and popovers, grid, guides, selection
+   box, "+ ADD BLOCK"), the block menu, and the Edit Block panel. */
+
+/* ---------- overlay ---------- */
+.bk-layer { position: absolute; inset: 0; pointer-events: none; }
+.bk-clip { position: absolute; overflow: hidden; pointer-events: none; }
+.bk-outline { position: absolute; border: 1px solid rgba(29,107,243,.4); border-radius: 1px; pointer-events: none; }
+.bk-sel { position: absolute; border: 2px solid var(--ui-blue); border-radius: 1px; pointer-events: none; }
+.bk-group { position: absolute; box-sizing: content-box; margin: -6px 0 0 -6px; padding: 5px; border: 1px dashed var(--ui-blue); border-radius: 3px; pointer-events: none; }
+.bk-hover { position: absolute; background: rgba(29,107,243,.12); box-shadow: inset 0 0 0 2px var(--ui-blue); pointer-events: none; }
+.bk-tag { position: absolute; display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px; border-radius: 5px; background: rgba(18,18,18,.82); color: #fff; font: 600 10.5px/1.5 var(--ui-font); letter-spacing: .02em; white-space: nowrap; pointer-events: none; }
+.bk-tag .ic { stroke-width: 2; }
+.bk-h { position: absolute; width: 12px; height: 12px; margin: -6px 0 0 -6px; border: 2px solid var(--ui-blue); border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.2); pointer-events: auto; touch-action: none; }
+.bk-h::after { content: ""; position: absolute; inset: -7px; } /* easier to grab */
+.bk-h:hover { background: var(--ui-blue); }
+
+.bk-tools { position: absolute; display: flex; align-items: center; gap: 2px; padding: 4px; background: #fff; border-radius: 10px; box-shadow: var(--ui-shadow); pointer-events: auto; white-space: nowrap; z-index: 2; }
+.bk-tools .bk-sep { width: 1px; height: 20px; background: var(--ui-line); margin: 0 2px; }
+.bk-tools .bk-count { padding: 0 8px; font-size: 12px; font-weight: 600; }
+.bk-tools .ibtn.on, .bk-pop .ibtn.on { background: var(--ui-blue-weak); color: var(--ui-blue); }
+
+.bk-add { position: absolute; display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 14px 0 11px; border: 0; border-radius: 999px; background: var(--ui-ink); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .08em; cursor: pointer; pointer-events: auto; box-shadow: var(--ui-shadow-sm); white-space: nowrap; z-index: 1; }
+.bk-add:hover { background: #333; }
+
+/* while dragging (and the grid kept on with G) */
+.bk-grid { position: absolute; pointer-events: none; }
+.bk-grid.kept { opacity: .8; }
+.bk-row { position: absolute; left: 0; right: 0; height: 1px; background: rgba(29,107,243,.2); }
+.bk-ghost { position: absolute; background: rgba(29,107,243,.14); border: 2px solid var(--ui-blue); border-radius: 2px; pointer-events: none; }
+.bk-free { position: absolute; border: 1.5px dashed rgba(29,107,243,.85); background: rgba(255,255,255,.18); pointer-events: none; }
+.bk-size { position: absolute; left: -2px; top: calc(100% + 4px); padding: 2px 7px; border-radius: 5px; background: var(--ui-blue); color: #fff; font: 600 11px/1.5 var(--ui-font); white-space: nowrap; }
+.bk-guide { position: absolute; background: #f0287d; pointer-events: none; }
+.bk-guide.v { width: 1px; margin-left: -.5px; }
+.bk-guide.h { height: 1px; margin-top: -.5px; }
+.bk-center { position: absolute; width: 2px; margin-left: -1px; background: #ffc400; pointer-events: none; }
+.bk-marquee { position: absolute; border: 1px solid var(--ui-blue); background: rgba(29,107,243,.08); pointer-events: none; }
+.bk-shield { position: absolute; inset: 0; pointer-events: auto; }
+
+/* ---------- toolbar popovers: alignment, link, Layers ---------- */
+.bk-pop { position: absolute; z-index: 3; padding: 10px; background: #fff; border-radius: 10px; box-shadow: var(--ui-shadow); pointer-events: auto; }
+.bk-pop-lbl { margin: 2px 2px 6px; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ui-muted); }
+.bk-pop-btns { display: flex; gap: 4px; margin-bottom: 10px; }
+.bk-pop-btns:last-child { margin-bottom: 0; }
+.bk-linkpop .toggle { margin: 12px 0; }
+.bk-pop-foot { display: flex; align-items: center; justify-content: space-between; }
+.bk-pop-head { display: flex; align-items: center; gap: 8px; padding: 0 0 6px 4px; }
+.bk-pop-head b { font-size: 13px; }
+.bk-pop-sub { flex: 1; font-size: 11.5px; color: var(--ui-muted); }
+.bk-lyr { list-style: none; margin: 0; padding: 0; max-height: 304px; overflow-y: auto; }
+.bk-lyr-row { position: relative; display: flex; align-items: center; gap: 8px; height: 38px; padding: 0 4px 0 6px; border-radius: 7px; cursor: pointer; user-select: none; }
+.bk-lyr-row:hover { background: var(--ui-hover); }
+.bk-lyr-row.sel { background: var(--ui-blue-weak); }
+.bk-lyr-row.off .bk-lyr-nm, .bk-lyr-row.off .bk-lyr-ic { opacity: .45; }
+.bk-lyr-row.dragging { opacity: .35; }
+.bk-lyr-row.drop-before::before, .bk-lyr-row.drop-after::after { content: ""; position: absolute; left: 6px; right: 6px; height: 2px; background: var(--ui-blue); border-radius: 2px; }
+.bk-lyr-row.drop-before::before { top: -1px; }
+.bk-lyr-row.drop-after::after { bottom: -1px; }
+.bk-lyr-grip { display: flex; color: var(--ui-muted); cursor: grab; }
+.bk-lyr-ic { display: flex; color: var(--ui-ink-2); }
+.bk-lyr-nm { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 6px; overflow: hidden; white-space: nowrap; font-size: 13px; }
+.bk-lyr-nm b { flex: none; font-weight: 600; }
+.bk-lyr-nm span { overflow: hidden; text-overflow: ellipsis; font-size: 12px; color: var(--ui-muted); }
+.bk-eye { position: relative; display: inline-flex; align-items: center; justify-content: center; flex: none; width: 26px; height: 26px; border: 0; border-radius: 6px; background: none; color: var(--ui-ink-2); cursor: pointer; }
+.bk-eye:hover { background: #fff; color: var(--ui-ink); }
+.bk-eye.off { color: var(--ui-muted); }
+.bk-eye.off::after { content: ""; position: absolute; left: 4px; right: 4px; top: 50%; height: 1.5px; background: var(--ui-red); transform: rotate(-45deg); }
+
+/* ---------- block menu ("+ ADD BLOCK") ---------- */
+.bk-addmenu { position: fixed; z-index: 120; padding: 10px; background: #fff; border-radius: 12px; box-shadow: var(--ui-shadow); animation: fade .12s ease; }
+.bk-am-search { display: flex; align-items: center; gap: 8px; height: 38px; padding: 0 12px; border: 1px solid var(--ui-line-2); border-radius: 8px; color: var(--ui-muted); cursor: text; }
+.bk-am-search:focus-within { border-color: var(--ui-blue); box-shadow: 0 0 0 3px var(--ui-blue-weak); }
+.bk-am-search input { flex: 1; min-width: 0; height: 100%; padding: 0; border: 0; outline: none; background: none; font-size: 13.5px; color: var(--ui-ink); }
+.bk-am-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 10px; max-height: calc(100vh - 150px); overflow-y: auto; }
+.bk-am-tile { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; height: 74px; padding: 8px 4px; border: 1px solid var(--ui-line); border-radius: 9px; background: #fff; color: var(--ui-ink); font-size: 12px; cursor: pointer; }
+.bk-am-tile:hover, .bk-am-tile:focus-visible { border-color: var(--ui-ink); background: var(--ui-hover); outline: none; }
+.bk-am-none { margin: 14px 4px 4px; font-size: 13px; color: var(--ui-muted); }
+.bk-am-hint { margin: 10px 2px 0; font-size: 11.5px; color: var(--ui-muted); }
+
+/* right-click menu entries with a keyboard shortcut */
+.menu .bk-mi { flex: 1; }
+.menu .bk-kbd { margin-left: 18px; font-size: 12px; color: var(--ui-muted); }
+
+/* ---------- Edit Block panel ---------- */
+.bk-cap { display: flex; align-items: flex-start; gap: 6px; }
+.bk-cap .bk-cap-text { flex: 1; height: auto; min-height: 38px; padding: 8px 12px; line-height: 1.45; font-size: 13px; overflow-wrap: anywhere; }
+.bk-cap .bk-cap-text:empty::before { content: attr(data-placeholder); color: var(--ui-muted); }
+.bk-ital { flex: none; width: 38px; height: 38px; border: 1px solid var(--ui-line-2); border-radius: 6px; background: #fff; font: italic 600 16px Georgia, serif; cursor: pointer; }
+.bk-ital:hover { background: var(--ui-hover); }
+.bk-usecap { justify-self: start; font-size: 12px; }
+.bk-focal { position: relative; max-width: 100%; border-radius: 6px; overflow: hidden; background: var(--ui-bg); cursor: crosshair; touch-action: none; user-select: none; outline: none; }
+.bk-focal:focus-visible { box-shadow: 0 0 0 3px var(--ui-blue-weak), 0 0 0 1px var(--ui-blue); }
+.bk-focal img { display: block; width: 100%; height: 100%; object-fit: fill; pointer-events: none; }
+.bk-dot { position: absolute; width: 18px; height: 18px; margin: -9px 0 0 -9px; border: 2px solid #fff; border-radius: 50%; background: var(--ui-blue); box-shadow: 0 0 0 1px rgba(0,0,0,.25), 0 2px 6px rgba(0,0,0,.35); pointer-events: none; }
+.bk-under { margin: -6px 0 14px; font-size: 12px; color: var(--ui-muted); }
+.bk-panel .note.ok .ic, .bk-panel .note.warn .ic { display: inline-block; vertical-align: -3px; }
+.bk-swatches { display: flex; flex-wrap: wrap; gap: 6px; }
+.bk-sw { width: 24px; height: 24px; padding: 0; border: 1px solid rgba(0,0,0,.15); border-radius: 50%; cursor: pointer; }
+.bk-sw.on { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--ui-blue); }
+.bk-items { list-style: none; display: grid; gap: 8px; margin: 0 0 12px; padding: 0; }
+.bk-item { position: relative; display: grid; gap: 6px; padding: 8px; border: 1px solid var(--ui-line); border-radius: 9px; background: #fff; }
+.bk-item.dragging { opacity: .35; }
+.bk-item.drop-before { box-shadow: 0 -3px 0 var(--ui-blue); }
+.bk-item.drop-after { box-shadow: 0 3px 0 var(--ui-blue); }
+.bk-item-head { display: flex; align-items: center; gap: 6px; }
+.bk-item-head > .input, .bk-item-head > .select { flex: 1; min-width: 0; height: 34px; }
+.bk-grip { display: flex; align-items: center; padding: 4px 0; color: var(--ui-muted); cursor: grab; }
+.bk-bad { margin: 0; font-size: 12px; color: var(--ui-amber); }
+.bk-foot { display: flex; gap: 8px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--ui-line); }
+.bk-foot .bk-del { color: var(--ui-red); }

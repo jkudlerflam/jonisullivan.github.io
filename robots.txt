@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /content/
+Disallow: /tools/
+Disallow: /tests/
+Sitemap: https://www.jonisullivan.com/sitemap.xml

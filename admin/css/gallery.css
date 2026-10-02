@@ -1,0 +1,56 @@
+/* Gallery panels (js/panels/gallery.js): Edit Gallery, one image, and the
+   Gallery tab. Classes start with "gl-"; shared pieces (.field, .seg, .toggle,
+   .subhead, .note ...) come from editor.css. */
+
+/* ---------- Edit Gallery: the image grid ---------- */
+.gl-images { min-width: 0; }
+.gl-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 22px; margin: 0 0 10px; font-size: 12px; font-weight: 600; }
+.gl-head .muted { font-weight: 400; }
+.gl-busy { display: inline-flex; align-items: center; gap: 6px; font-weight: 400; color: var(--ui-ink-2); }
+.gl-busy .spin { width: 12px; height: 12px; }
+.gl-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0 0 12px; padding: 0; border-radius: 10px; transition: box-shadow .15s, background-color .15s; }
+.gl-grid.over { background: var(--ui-blue-weak); box-shadow: 0 0 0 6px var(--ui-blue-weak), 0 0 0 7.5px var(--ui-blue); }
+.gl-tile { position: relative; min-width: 0; aspect-ratio: 1; border-radius: 6px; background: var(--ui-bg); }
+.gl-pick { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; cursor: pointer; outline: none; }
+.gl-pick img { display: block; width: 100%; height: 100%; object-fit: cover; transition: filter .15s; -webkit-user-drag: none; }
+.gl-tile:hover .gl-pick img { filter: brightness(.86); }
+.gl-pick:focus-visible { box-shadow: inset 0 0 0 2px var(--ui-blue); }
+.gl-tile.off .gl-pick img { opacity: .35; }
+.gl-tile.dragging { opacity: .35; }
+.gl-tile.drop-before { box-shadow: -5px 0 0 -1px var(--ui-blue); }
+.gl-tile.drop-after { box-shadow: 5px 0 0 -1px var(--ui-blue); }
+.gl-missing { display: grid; place-items: center; align-content: center; gap: 4px; height: 100%; font-size: 11px; color: var(--ui-amber); }
+.gl-badge { position: absolute; left: 5px; bottom: 5px; display: inline-flex; align-items: center; gap: 4px; padding: 2px 6px; border-radius: 4px; background: rgba(18, 18, 18, .78); color: #fff; font-size: 10px; font-weight: 600; pointer-events: none; }
+.gl-trash { position: absolute; top: 5px; right: 5px; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; padding: 0; border: 0; border-radius: 6px; background: rgba(255, 255, 255, .95); color: var(--ui-ink); box-shadow: var(--ui-shadow-sm); cursor: pointer; opacity: 0; transition: opacity .12s; }
+.gl-tile:hover .gl-trash, .gl-trash:focus-visible { opacity: 1; }
+.gl-trash:hover { color: var(--ui-red); }
+.gl-add { display: grid; place-items: center; width: 100%; padding: 0; border: 1.5px dashed var(--ui-line-2); background: #fff; color: var(--ui-ink-2); cursor: pointer; transition: border-color .15s, color .15s, background-color .15s; }
+.gl-add:hover:not(:disabled) { border-color: var(--ui-ink); color: var(--ui-ink); background: var(--ui-hover); }
+.gl-add:disabled { cursor: progress; }
+.gl-help { margin: 0 0 12px; font-size: 12px; line-height: 1.45; color: var(--ui-muted); }
+.gl-help.gl-under { margin-top: -8px; }
+.gl-addpos { display: flex; align-items: center; gap: 8px; margin: 0 0 4px; font-size: 12px; color: var(--ui-muted); }
+.gl-addpos .select { width: auto; height: 28px; padding: 0 28px 0 9px; font-size: 12px; background-position: right 9px center; color: var(--ui-ink); }
+
+/* ---------- one image ---------- */
+.gl-nav { display: flex; align-items: center; justify-content: space-between; margin: -6px -6px 8px; font-size: 12px; color: var(--ui-ink-2); }
+.gl-stage { position: relative; display: grid; place-items: center; min-height: 150px; margin: 0 0 8px; padding: 14px; border-radius: 8px; background: var(--ui-bg); color: var(--ui-muted); }
+.gl-focal { position: relative; display: inline-block; max-width: 100%; line-height: 0; cursor: crosshair; touch-action: none; user-select: none; -webkit-user-select: none; outline: none; }
+.gl-focal img { display: block; max-width: 100%; max-height: 240px; width: auto; height: auto; pointer-events: none; -webkit-user-drag: none; }
+.gl-focal.off img { opacity: .4; }
+.gl-focal:focus-visible { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--ui-blue); }
+.gl-dot { position: absolute; width: 24px; height: 24px; margin: -12px 0 0 -12px; border: 2px solid #fff; border-radius: 50%; background: rgba(29, 107, 243, .32); box-shadow: 0 0 0 1px rgba(0, 0, 0, .3), 0 1px 5px rgba(0, 0, 0, .35); pointer-events: none; }
+.gl-dot::after { content: ""; position: absolute; left: 50%; top: 50%; width: 4px; height: 4px; margin: -2px 0 0 -2px; border-radius: 50%; background: #fff; }
+.gl-flag { position: absolute; top: 8px; left: 8px; display: inline-flex; align-items: center; gap: 5px; padding: 2px 8px; border-radius: 4px; background: rgba(18, 18, 18, .82); color: #fff; font-size: 11px; font-weight: 600; }
+.gl-fnote { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin: 0 0 12px; font-size: 12px; line-height: 1.45; color: var(--ui-ink-2); }
+.gl-fnote .linkbtn { flex: none; font-size: 12px; }
+.gl-title { margin: 0 0 14px; font-size: 12px; color: var(--ui-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.note.gl-capnote { margin-top: -8px; }
+.gl-acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.btn.gl-danger { color: var(--ui-red); }
+.btn.gl-danger:hover { border-color: var(--ui-red); }
+
+/* ---------- Gallery tab ---------- */
+.gl-design { min-width: 0; }
+.gl-design > .field:first-child .select { font-weight: 600; }
+.gl-design .subhead { margin-top: 24px; }
